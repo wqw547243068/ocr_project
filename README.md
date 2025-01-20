@@ -47,9 +47,56 @@ Web UI
       - 其次才是安装 python 接口 `pip install pytesseract`
     - PaddleOCR 安装: 需要安装 百度深度学习框架 飞浆，其次才是 paddleocr
       - `pip install paddlepaddle paddleocr`
+    - MinerU 工具: , [主页](http://mineru.org.cn), [Demo](https://www.modelscope.cn/studios/OpenDataLab/MinerU) 
   - 文档解析工具: word, pdf 解析工具
 - 前端
   - 依赖: node.js
+
+
+### 在线部署
+
+现在有网环境，联网部署，再去无网环境使用
+
+环境准备
+- (1) 后端环境
+  - ① Python 安装: 取[网址](https://www.python.org/ftp/python/3.11.1/) 下载对应系统的Python安装包
+    - 如 win 10 系统, 下载 exe 文件, [地址](https://www.python.org/ftp/python/3.11.1/python-3.11.1.exe)
+    - 双击安装，注意：
+      - 勾选 添加环境变量, 否则，需要添加 Python bin 路径到 环境变量 Path 中
+      - 勾选 安装 pip, 否则, 需要手工安装 pip
+  - ② pip 安装：
+    - 如果已安装，略过
+    - 手工安装
+      - 快捷命令: `python -m ensurepip --default-pip`
+      - 或 访问 [https://bootstrap.pypa.io/get-pip.py](https://bootstrap.pypa.io/get-pip.py)，下载 get-pip.py 文件, 当前目录执行 `python get-pip.py`
+- (2) 前端环境
+  - 安装 node.js:
+    - 去[官网](https://nodejs.org/en/download/)选择对应版本, 如 win10 64位安装包 [地址](https://nodejs.org/dist/v22.12.0/node-v22.12.0-x64.msi)
+    - 双击安装
+
+
+```sh
+# （1）环境准备
+
+# 获取源码
+git clone https://github.com/wqw547243068/ocr_project_two.git
+
+cd ocr_project_two
+# 安装python依赖包
+# pip install -r requirements.txt
+pip install Flask # demo
+# 启动后端服务
+cd backend
+python flask_web_demo.py # demo
+# python flask_web.py # online
+
+# 启动前端服务
+cd ocr-ui
+npm install # 生成 dist 目录
+npm run dev # 确认页面功能正常
+
+```
+
 
 
 ### 离线部署
